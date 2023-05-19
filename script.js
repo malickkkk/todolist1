@@ -1,6 +1,6 @@
 const defaultTodo = [
-    {done: true, name: "Tache 1"},
-    {done: true, name: "Tache 2"},
+    {done: true, name: "Tache A"},
+    {done: true, name: "Tache B"},
 ]
 
 // #1 selectionner le bouton avec l'id #add, le container #container-list, le input #new
