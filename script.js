@@ -1,29 +1,35 @@
 const defaultTodo = [
-    {done: true, name: "Coucou"},
-    {done: true, name: "Coucou"},
+    {done: true, name: "Tache 1"},
+    {done: true, name: "Tache 2"},
 ]
 
-const displayTodos = (listTodo) => {
-console.log(listTodo)
-}
-
-
 // #1 selectionner le bouton avec l'id #add, le container #container-list, le input #new
-const btn = document.querySelector('#btnadd')
-const input = document.querySelector('#new')
+const btn = document.querySelector('#add')
 const container = document.querySelector('#container-list')
+const input = document.querySelector('#new')
 // #2 Afficher les todos dans le container avec une fonction displayTodos
-displayTodos.forEach(listTodo => {
+const displayTodos = (list) => {
 
-    container.innerHTML += ` <div class="border bg-slate-800 p-8 rounded-xl mt-4">
-                           ${listTodo.done}
-                           ${listTodo.name}
-                            </div>
-    `
-});
+    container.innerHTML =""
+    list.forEach(task => {
+
+        container.innerHTML += `<div class="mt-2 p-2 bg-slate-700 mx-auto">${task.name}</div>`
+        
+    });
+
+}
+displayTodos(defaultTodo)
 
 // #3 Ajouter un event listener sur le bouton pour ajouter un todo
 
+btn.addEventListener('click',() => {
+
+    const newTask = {name:input.value}
+    input.value = ""
+    defaultTodo.push   (newTask)
+    displayTodos(defaultTodo)
+
+})
 
 // BONUS
 
